@@ -10,23 +10,21 @@ namespace sum_of_number
     {
         static void Main(string[] args)
         {
-            
-            bool parseSucceed = false;
-            int count = 0;
-            int sum =0;
+            int[] list = new int[3];
 
-            do
+            for (int i = 0; i < list.Length; i++)
             {
-                Console.WriteLine($"Enter {count+1} number");
-                parseSucceed =  Int32.TryParse(Console.ReadLine(), out int number);
-                sum += number;
-                count++;
-               
+                Console.Write($"Enter {i + 1} number: ");
+                int value = int.Parse(Console.ReadLine());
+                list[i] = value;
             }
-            while (parseSucceed &&  count <5);
+            Array.Sort(list);
+            Array.Reverse(list);
 
-            Console.WriteLine($"The sum is {sum}");
-
+            foreach(int i in list)
+            {
+                Console.WriteLine(i);
+            }
 
             Console.ReadKey();  
         }
